@@ -3180,42 +3180,21 @@ var WrapperWindow = function(editorUi, title, x, y, w, h, fn, div)
 		if (graph.view.backgroundPageShape != null)
 		{
 			graph.view.backgroundPageShape.node.style.backgroundPosition = position;
-			graph.view.backgroundPageShape.node.style.backgroundImage = image;
-			graph.view.backgroundPageShape.node.style.backgroundColor = color;
+			graph.view.backgroundPageShape.node.style.backgroundImage = 'none';
+			graph.view.backgroundPageShape.node.style.backgroundColor = 'transparent';
 			graph.view.backgroundPageShape.node.style.borderColor = pageBorder;
 			graph.view.backgroundPageShape.node.style.colorScheme =
 				(graph.getAdaptiveColors() == 'none') ? 'light' : '';
 			canvas.style.backgroundImage = 'none';
-			canvas.style.backgroundColor = '';
-
-			if (useDiagramBackground)
-			{
-				graph.container.style.backgroundColor = graph.diagramBackgroundColor;
-			}
-			else
-			{
-				graph.container.style.backgroundColor = '';
-			}
+			canvas.style.backgroundColor = 'transparent';
+			graph.container.style.backgroundColor = 'transparent';
 		}
 		else
 		{
 			canvas.style.backgroundPosition = position;
-			canvas.style.backgroundImage = image;
-
-			if (urlParams['transparent'] == '1')
-			{
-				graph.container.style.background = 'transparent';
-			}
-			else if (useDiagramBackground && (graph.background == null ||
-				graph.background == mxConstants.NONE))
-			{
-				canvas.style.backgroundColor = graph.diagramBackgroundColor;
-				graph.container.style.backgroundColor = '';
-			}
-			else
-			{
-				canvas.style.backgroundColor = color;
-			}
+			canvas.style.backgroundImage = 'none';
+			canvas.style.backgroundColor = 'transparent';
+			graph.container.style.background = 'transparent';
 		}
 	};
 	

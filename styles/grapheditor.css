@@ -1026,7 +1026,7 @@ div.geFormatContainer {
 }
 
 .geDiagramContainer {
-	background-color: light-dark(var(--workspace-color), var(--ge-dark-panel-color));
+	background-color: transparent;
 	font-size: 0px;
 	outline: none;
 }
