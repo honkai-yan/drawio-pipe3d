@@ -313,6 +313,12 @@ EditorUi = function(editor, container, lightbox)
 	            root.style.position = 'absolute';
 	        }
 	    }
+
+		// Adds Gaode static map background layer behind the canvas
+		if (typeof MapBackground !== 'undefined')
+		{
+			this.mapBackground = new MapBackground(this);
+		}
 	    
 		// Creates hover icons
 		this.hoverIcons = this.createHoverIcons();

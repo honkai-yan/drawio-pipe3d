@@ -259,31 +259,3 @@ servers:
 security: []
 
 ```
-
-# 安全秘钥设置
-
-通过明文方式设置
-注意
-JS API 安全密钥以明文方式设置，不建议在生产环境使用（不安全）。
-
-提示
-JS API 使用<script>标签同步加载增加安全密钥设置脚本，并将「你申请的安全密钥」替换为你的安全密钥（注意你这个设置必须是在 JS API 脚本加载之前进行设置，否则设置无效）。
-
-JS API 脚本同步加载为例：
-
-<div id="container"></div>
-<script type="text/javascript">
-  window._AMapSecurityConfig = {
-    securityJsCode: "「你申请的安全密钥」",
-  };
-</script>
-<script
-  type="text/javascript"
-  src="https://webapi.amap.com/maps?v=2.0&key=你申请的key值"
-></script>
-<script type="text/javascript">
-  //地图初始化应该在地图容器div已经添加到DOM树之后
-  var map = new AMap.Map("container", {
-    zoom: 12,
-  });
-</script>
