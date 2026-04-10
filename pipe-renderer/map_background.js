@@ -85,7 +85,7 @@ function createMapBackground() {
 	img.style.pointerEvents = 'none'
 	img.style.userSelect = 'none'
 	img.draggable = false;
-  img.src = buildImgUrl(parseInt(img.style.width), parseInt(img.style.height))
+  img.src = buildImgUrl(parseInt(mx_canvas.scrollWidth), parseInt(mx_canvas.scrollHeight))
   img.style.backgroundColor = 'rgba(0, 0, 255, 0.2)'
 
   img.onerror = (e) => {
@@ -124,15 +124,15 @@ function updateMapPosition() {
 
   // 应用transform
   img.style.transform = transformStr
+
+  // 每帧更新一次地图位置与尺寸
+  requestAnimationFrame(updateMapPosition)
 }
 
 try {
   await init()
   createMapBackground()
   updateMapPosition()
-
-  // 每16.6ms更新一次地图位置与尺寸
-  setInterval(updateMapPosition, 16.6)
 } catch {
   console.error('高德地图加载失败')
   alert('高德地图加载失败')
